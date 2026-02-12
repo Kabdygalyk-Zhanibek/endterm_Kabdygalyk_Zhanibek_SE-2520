@@ -15,3 +15,22 @@ Singleton in DatabaseManager() is need for connect to database and from hir make
 , Factory in MangaFactory() is need for create a new data in some class just with adding some data
 , Builder in Manga() is need for create new Manga 
 
+REP I share this code in GitHub and add teg
+CCP I grouped class with same task
+CRP I don't grouped classes, what are haven't same task or other
+
+U need to divide task of one to many others, they need to connected to other and use for this abstract and interface
+I use abstract classes and interfaces abstract method have polymorphism and I connected to classes with using a
+getter and setter.
+
+I add Database Schema in docs like photo and text with name "manga_list"
+
+Client give data -> with Service sorted this data -> Repository get data -> BaseEntity displayed data
+
+enter url, username, password in application.properties, next run Application class, next is in Postman
+GET http://localhost:8080/...(@RequestMapping)/...(GetMapping) send this and make data
+
+I don't understand why @RestController, @RequestMapping and other is not work may I don't download
+some library or other, so this why I con not connect this code to Postman, I and Singleton, Factory and 
+Builder is littly create problem, for understand and for write code (Exactly I not sure, I write them correct 
+or not).
