@@ -12,32 +12,33 @@ import java.util.List;
 */
 public class Application {
     public static void main(String[] args) {
-        String url = "jdbc:postgresql://localhost:5432/manga_list";
-        try (Connection conn = DriverManager.getConnection(url, "postgres", "Janibek590!")) {
+        try(Connection conn = petterns.DatabaseManager.getInstance().getConnection()) {
             MangaRepository repo = new MangaRepository(conn);
             MangaService service = new MangaService(repo);
-
-            List<Manga> sorted = service.getSortedManga();
-            //sorted = service.getFinishedManga();//You can delete this for make all manga
-            sorted.forEach(m -> {
-                m.logEntity();
-                m.displayDetails();
-            });
-
-        /* I start work to this, but I wanted to add him too late
+            
+            List<Manga> firstCall = service.getSortedManga();//need for cache
+            List<Manga> secondCall = service.getSortedManga();
+            //secondCall = service.getFinishedManga(); for see only ended manga
+            /* I start work to this, but I wanted to add him too late
         List<Review> sorted_r = service.getSortedReview();
         sorted_r = service.getFinishedReview();
         sorted_r.forEach(r -> {
             r.logEntity();
             r.displayDetails();
         });*/
-
+            secondCall.forEach(m ->{
+                m.logEntity();
+                m.displayDetails();
+            });
             System.out.println("--- RTTI Demo ---");
-            if (!sorted.isEmpty()) {
-                ReflectionUtils.inspect(sorted.get(0));
+            if (!secondCall.isEmpty()) {
+                utils.ReflectionUtils.inspect(secondCall.get(0));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 }
+
+
+           
