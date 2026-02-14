@@ -34,3 +34,12 @@ I don't understand why @RestController, @RequestMapping and other is not work ma
 some library or other, so this why I con not connect this code to Postman, I and Singleton, Factory and 
 Builder is littly create problem, for understand and for write code (Exactly I not sure, I write them correct 
 or not).
+
+
+
+for bonus task I add new class CacheManager for this class I use solution, so this why we know about 
+created only one class CacheManager, I create method for get data (many of them just return data, 
+one clear/del data (how min, I think like this))and use him in MangaRepository 
+and use all new method in him, for (maybe) get data faster.
+In Application, I don't add some new method, I just little "rephrase" him and use MangaService twice for
+cache.
